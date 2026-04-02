@@ -1,5 +1,6 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -8,6 +9,42 @@ import { Container } from "@/components/ui/container";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleMobileNavClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("#")) {
+      setIsOpen(false);
+      return;
+    }
+
+    event.preventDefault();
+    setIsOpen(false);
+
+    window.history.pushState(null, "", href);
+
+    window.setTimeout(() => {
+      const target = document.querySelector(href);
+
+      if (!target) {
+        return;
+      }
+
+      const headerHeight =
+        document.querySelector("header") instanceof HTMLElement
+          ? document.querySelector("header")!.offsetHeight
+          : 0;
+
+      const targetTop =
+        window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: "smooth",
+      });
+    }, 180);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--background)]">
@@ -63,7 +100,7 @@ export function SiteHeader() {
                       key={item.href}
                       href={item.href}
                       className="border border-[var(--line)] px-4 py-3 text-sm text-[var(--foreground)]"
-                      onClick={() => setIsOpen(false)}
+                      onClick={(event) => handleMobileNavClick(event, item.href)}
                     >
                       {item.label}
                     </a>
@@ -71,7 +108,7 @@ export function SiteHeader() {
                   <a
                     href="#pricing"
                     className="mono-button mono-button-dark inline-flex items-center justify-between"
-                    onClick={() => setIsOpen(false)}
+                    onClick={(event) => handleMobileNavClick(event, "#pricing")}
                   >
                     View Pricing
                     <ArrowUpRight className="h-4 w-4" />
