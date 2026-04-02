@@ -35,12 +35,12 @@ export function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="pr-4 font-display text-xl font-semibold text-white">
+                    <span className="pr-4 font-display text-xl font-semibold text-slate-900">
                       {item.question}
                     </span>
                     <ChevronDown
                       className={[
-                        "h-5 w-5 shrink-0 text-sky-200 transition-transform",
+                        "h-5 w-5 shrink-0 text-slate-500 transition-transform",
                         isOpen ? "rotate-180" : "",
                       ]
                         .filter(Boolean)
@@ -56,7 +56,7 @@ export function FaqSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.24, ease: "easeOut" }}
                       >
-                        <div className="border-t border-white/10 px-5 pb-5 pt-4 text-base leading-7 text-slate-300 sm:px-6">
+                        <div className="border-t border-slate-200 px-5 pb-5 pt-4 text-base leading-7 text-slate-600 sm:px-6">
                           {item.answer}
                         </div>
                       </motion.div>

@@ -18,13 +18,13 @@ export function ProcessSection() {
             {processSteps.map((step, index) => (
               <Reveal key={step.title} delay={index * 0.06}>
                 <article className="section-surface h-full rounded-[1.6rem] p-6">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-300/18 bg-sky-400/10 font-display text-lg font-semibold text-sky-200">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 font-display text-lg font-semibold text-blue-700">
                     0{index + 1}
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-semibold text-white">
+                  <h3 className="mt-6 font-display text-2xl font-semibold text-slate-900">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-base leading-7 text-slate-300">
+                  <p className="mt-3 text-base leading-7 text-slate-600">
                     {step.description}
                   </p>
                 </article>

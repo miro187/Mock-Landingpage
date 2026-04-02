@@ -1,27 +1,29 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { companyName, navLinks } from "@/data/site-content";
 import { Container } from "@/components/ui/container";
 
 export function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 pt-4">
+    <header className="sticky top-0 z-50 pt-5">
       <Container>
-        <div className="pill-outline rounded-[1.4rem] px-4 py-3 shadow-[0_18px_50px_rgba(2,6,23,0.25)]">
+        <div className="pill-outline rounded-[1.3rem] px-5 py-4">
           <div className="flex items-center justify-between gap-4">
             <a
               href="#top"
-              className="flex min-w-0 items-center gap-3 rounded-full px-2 py-1 text-sm text-white"
+              className="flex min-w-0 flex-1 items-center gap-3 rounded-full text-sm text-slate-900"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 via-blue-500 to-cyan-300 text-sm font-semibold text-slate-950 shadow-[0_0_24px_rgba(56,189,248,0.35)]">
-                VF
+              <span className="truncate font-display text-base font-semibold tracking-tight sm:text-lg">
+                {companyName}
               </span>
-              <span className="min-w-0">
-                <span className="block truncate font-display text-base font-semibold">
-                  {companyName}
-                </span>
-                <span className="block truncate text-xs text-slate-400">
-                  Fictional showcase brand
-                </span>
+              <span className="hidden rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:inline-flex">
+                Demo
               </span>
             </a>
 
@@ -30,7 +32,7 @@ export function SiteHeader() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-slate-300 hover:text-white"
+                  className="text-sm text-slate-600 hover:text-slate-900"
                 >
                   {item.label}
                 </a>
@@ -39,24 +41,57 @@ export function SiteHeader() {
 
             <a
               href="#pricing"
-              className="inline-flex items-center gap-2 rounded-full border border-sky-300/25 bg-white/6 px-4 py-2 text-sm font-medium text-white hover:border-sky-300/45 hover:bg-white/10"
+              className="hidden shrink-0 items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-100 md:inline-flex"
             >
-              View mock pricing
+              View pricing
               <ArrowUpRight className="h-4 w-4" />
             </a>
+
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:text-slate-900 md:hidden"
+              onClick={() => setIsOpen((open) => !open)}
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
 
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 md:hidden">
-            {navLinks.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-slate-300 hover:border-sky-300/35 hover:text-white"
+          <AnimatePresence initial={false}>
+            {isOpen ? (
+              <motion.div
+                className="overflow-hidden md:hidden"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
               >
-                {item.label}
-              </a>
-            ))}
-          </div>
+                <div className="mt-4 border-t border-slate-200 pt-4">
+                  <nav className="flex flex-col gap-2">
+                    {navLinks.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:border-blue-200 hover:text-slate-900"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                    <a
+                      href="#pricing"
+                      className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-100"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      View pricing
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </nav>
+                </div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </Container>
     </header>

@@ -68,7 +68,7 @@ type Faq = {
   answer: string;
 };
 
-export const companyName = "VantaFlux AI";
+export const companyName = "Northpoint Systems";
 
 export const navLinks: LinkItem[] = [
   { label: "Services", href: "#services" },
@@ -79,24 +79,24 @@ export const navLinks: LinkItem[] = [
 ];
 
 export const heroStats: Stat[] = [
-  { value: "58", label: "mock workflows shipped in this fictional showcase" },
-  { value: "14h", label: "illustrative weekly time saved per operations team" },
-  { value: "9 days", label: "demo average delivery window for launch-ready systems" },
+  { value: "58", label: "illustrative workflows mapped across the demo site" },
+  { value: "14h", label: "fictional weekly hours returned to operations teams" },
+  { value: "9 days", label: "mock timeline to first working delivery sprint" },
 ];
 
 export const trustHighlights = [
-  "Portfolio preview with clearly fictional data",
-  "Built for responsive GitHub and Fiverr presentation",
-  "Next.js, Tailwind, TypeScript, Framer Motion",
+  "Clean business presentation in default light mode",
+  "All names, figures, and references are fictional",
+  "Built with Next.js, Tailwind CSS, TypeScript, and Framer Motion",
 ];
 
 export const showcaseBrands = [
-  "NOVADECK",
-  "POLAR ARC",
-  "MINTLAYER",
-  "CLOUD UNION",
-  "ORBITLINE",
-  "HOLLOWPEAK",
+  "Claremont Health",
+  "Atlas Ledger",
+  "North Harbor",
+  "Summit Retail",
+  "Meridian Ops",
+  "Aster Grove",
 ];
 
 export const services: Service[] = [
@@ -297,7 +297,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "If I saw this in a freelancer portfolio, I would assume the builder can handle real SaaS landing pages end to end.",
+      "If I saw this in a freelancer portfolio, I would assume the builder can handle serious business landing pages end to end.",
     name: "Jonah Ellis",
     role: "Fictional Founder, Vector Harbor",
   },
@@ -307,7 +307,7 @@ export const faqs: Faq[] = [
   {
     question: "Is this brand real?",
     answer:
-      "No. VantaFlux AI is intentionally fictional. The brand, copy, logos, metrics, testimonials, pricing, and contact details exist only to demonstrate portfolio-quality execution.",
+      "No. Northpoint Systems is intentionally fictional. The brand, copy, logos, metrics, testimonials, pricing, and contact details exist only to demonstrate portfolio-quality execution.",
   },
   {
     question: "Could this structure be adapted for a real client?",

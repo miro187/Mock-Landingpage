@@ -19,20 +19,20 @@ export function ServicesSection() {
 
             return (
               <Reveal key={service.title} delay={index * 0.06}>
-                <article className="section-surface h-full rounded-[1.7rem] p-6 hover:-translate-y-1 hover:border-sky-300/28 hover:bg-slate-950/75">
+                <article className="section-surface h-full rounded-[1.7rem] p-6 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="rounded-[1.1rem] border border-sky-300/18 bg-sky-400/10 p-3 text-sky-200">
+                    <div className="rounded-[1.1rem] border border-blue-100 bg-blue-50 p-3 text-blue-700">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                    <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                       {service.eyebrow}
                     </span>
                   </div>
 
-                  <h3 className="mt-8 font-display text-2xl font-semibold text-white">
+                  <h3 className="mt-8 font-display text-2xl font-semibold text-slate-900">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-slate-300">
+                  <p className="mt-4 text-base leading-7 text-slate-600">
                     {service.description}
                   </p>
                 </article>

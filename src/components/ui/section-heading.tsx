@@ -19,13 +19,13 @@ export function SectionHeading({
         .filter(Boolean)
         .join(" ")}
     >
-      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-sky-300/80">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
         {eyebrow}
       </p>
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.9rem] lg:leading-[1.05]">
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-[2.9rem] lg:leading-[1.08]">
         {title}
       </h2>
-      <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
+      <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
         {description}
       </p>
     </Reveal>

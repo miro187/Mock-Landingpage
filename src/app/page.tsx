@@ -13,9 +13,7 @@ import { TestimonialsSection } from "@/components/site/testimonials-section";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_55%)]" />
-      <div className="pointer-events-none absolute right-[-10rem] top-[16rem] -z-10 h-[24rem] w-[24rem] rounded-full bg-sky-400/10 blur-3xl" />
+    <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
