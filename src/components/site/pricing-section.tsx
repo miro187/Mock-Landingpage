@@ -6,7 +6,7 @@ import { pricingTiers } from "@/data/site-content";
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-20 sm:py-24">
+    <section id="pricing" className="border-b border-[var(--line)] py-16 sm:py-20">
       <Container>
         <SectionHeading
           eyebrow="Pricing"
@@ -16,19 +16,19 @@ export function PricingSection() {
         />
 
         <Reveal delay={0.08} className="mx-auto mt-6 max-w-3xl text-center">
-          <p className="rounded-full border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <p className="mono-tag inline-flex text-[var(--foreground)]">
             Pricing is illustrative only and does not represent a real agency rate card.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {pricingTiers.map((tier, index) => (
             <Reveal key={tier.name} delay={index * 0.06}>
               <article
                 className={[
-                  "section-surface h-full rounded-[1.9rem] p-6 sm:p-7",
+                  "section-surface h-full p-6 sm:p-7",
                   tier.highlight
-                    ? "border-blue-200 bg-[linear-gradient(180deg,#ffffff,#f3f8ff)] shadow-[0_20px_50px_rgba(37,99,235,0.08)]"
+                    ? "border-[var(--line-strong)] bg-[rgba(31,34,40,0.05)]"
                     : "",
                 ]
                   .filter(Boolean)
@@ -36,29 +36,29 @@ export function PricingSection() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                    <p className="mono-label">
                       {tier.name}
                     </p>
-                    <p className="mt-5 font-display text-5xl font-semibold text-slate-900">
+                    <p className="mt-5 font-mono text-5xl font-light tracking-[-0.05em] text-[var(--foreground)]">
                       {tier.price}
                     </p>
-                    <p className="mt-2 text-sm text-slate-500">{tier.cadence}</p>
+                    <p className="copy-tertiary mt-3 text-sm">{tier.cadence}</p>
                   </div>
                   {tier.highlight ? (
-                    <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+                    <span className="mono-tag text-[var(--foreground)]">
                       Most complete
                     </span>
                   ) : null}
                 </div>
 
-                <p className="mt-6 text-base leading-7 text-slate-600">
+                <p className="copy-secondary mt-6 text-base leading-7">
                   {tier.description}
                 </p>
 
                 <ul className="mt-8 space-y-3">
                   {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm text-slate-700">
-                      <span className="mt-0.5 rounded-full bg-blue-50 p-1 text-blue-700">
+                    <li key={feature} className="flex items-start gap-3 text-sm text-[var(--foreground)]">
+                      <span className="mt-0.5 border border-[var(--line)] p-1 text-[var(--foreground)]">
                         <Check className="h-4 w-4" />
                       </span>
                       <span>{feature}</span>
@@ -69,10 +69,10 @@ export function PricingSection() {
                 <a
                   href="#final-cta"
                   className={[
-                    "mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold",
+                    "mono-button mt-8 inline-flex w-full items-center justify-center",
                     tier.highlight
-                      ? "bg-slate-900 text-white hover:bg-slate-800"
-                      : "border border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:text-slate-900",
+                      ? "mono-button-dark"
+                      : "mono-button-ghost",
                   ]
                     .filter(Boolean)
                     .join(" ")}

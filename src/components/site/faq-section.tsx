@@ -11,7 +11,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section id="faq" className="py-20 sm:py-24">
+    <section id="faq" className="border-b border-[var(--line)] py-16 sm:py-20">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading
@@ -27,7 +27,7 @@ export function FaqSection() {
               return (
                 <article
                   key={item.question}
-                  className="section-surface overflow-hidden rounded-[1.5rem]"
+                  className="section-surface overflow-hidden"
                 >
                   <button
                     type="button"
@@ -35,7 +35,7 @@ export function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="pr-4 font-display text-xl font-semibold text-slate-900">
+                    <span className="pr-4 text-xl font-normal tracking-tight text-[var(--foreground)]">
                       {item.question}
                     </span>
                     <ChevronDown
@@ -56,7 +56,7 @@ export function FaqSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.24, ease: "easeOut" }}
                       >
-                        <div className="border-t border-slate-200 px-5 pb-5 pt-4 text-base leading-7 text-slate-600 sm:px-6">
+                        <div className="copy-secondary border-t border-[var(--line)] px-5 pb-5 pt-4 text-base leading-7 sm:px-6">
                           {item.answer}
                         </div>
                       </motion.div>

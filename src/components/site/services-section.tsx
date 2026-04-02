@@ -5,34 +5,34 @@ import { services } from "@/data/site-content";
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 sm:py-24">
+    <section id="services" className="border-b border-[var(--line)] py-16 sm:py-20">
       <Container>
         <SectionHeading
           eyebrow="Services"
-          title="A premium services section with enough detail to feel like a real offer."
-          description="Each card is written as believable mock positioning rather than filler text, so the page stays useful as a serious portfolio piece."
+          title="Structured service blocks with the same engineering-led visual restraint."
+          description="The cards stay minimal and sharp: no shadows, no decorative effects, just hierarchy, borders, and copy doing the work."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <Reveal key={service.title} delay={index * 0.06}>
-                <article className="section-surface h-full rounded-[1.7rem] p-6 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+                <article className="section-surface h-full p-6 hover:border-[var(--line-strong)]">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="rounded-[1.1rem] border border-blue-100 bg-blue-50 p-3 text-blue-700">
+                    <div className="border border-[var(--line)] p-3 text-[var(--foreground)]">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                    <span className="mono-label">
                       {service.eyebrow}
                     </span>
                   </div>
 
-                  <h3 className="mt-8 font-display text-2xl font-semibold text-slate-900">
+                  <h3 className="mt-8 text-2xl font-normal tracking-tight text-[var(--foreground)]">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-slate-600">
+                  <p className="copy-secondary mt-4 text-base leading-7">
                     {service.description}
                   </p>
                 </article>

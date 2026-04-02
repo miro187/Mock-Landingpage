@@ -5,7 +5,7 @@ import { advantages } from "@/data/site-content";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 sm:py-24">
+    <section id="about" className="border-b border-[var(--line)] py-16 sm:py-20">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div>
@@ -16,8 +16,8 @@ export function AboutSection() {
             />
 
             <Reveal delay={0.1}>
-              <div className="section-surface mt-8 rounded-[1.8rem] p-6 sm:p-7">
-                <p className="accent-line pt-6 text-base leading-8 text-slate-600">
+              <div className="section-surface mt-8 p-6 sm:p-7">
+                <p className="accent-line copy-secondary pt-6 text-base leading-8">
                   Northpoint Systems is a fictional business identity created for
                   portfolio use. The aim is to demonstrate a client-ready standard
                   of design and frontend execution without implying real brand
@@ -33,14 +33,14 @@ export function AboutSection() {
 
               return (
                 <Reveal key={advantage.title} delay={index * 0.06}>
-                  <article className="section-surface h-full rounded-[1.6rem] p-6">
-                    <div className="w-fit rounded-[1.05rem] border border-blue-100 bg-blue-50 p-3 text-blue-700">
+                  <article className="section-surface h-full p-6">
+                    <div className="w-fit border border-[var(--line)] p-3 text-[var(--foreground)]">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="mt-6 font-display text-xl font-semibold text-slate-900">
+                    <h3 className="mt-6 text-xl font-normal tracking-tight text-[var(--foreground)]">
                       {advantage.title}
                     </h3>
-                    <p className="mt-3 text-base leading-7 text-slate-600">
+                    <p className="copy-secondary mt-3 text-base leading-7">
                       {advantage.description}
                     </p>
                   </article>

@@ -6,7 +6,7 @@ import { testimonials } from "@/data/site-content";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 sm:py-24">
+    <section className="border-b border-[var(--line)] py-16 sm:py-20">
       <Container>
         <SectionHeading
           eyebrow="Testimonials"
@@ -15,30 +15,30 @@ export function TestimonialsSection() {
         />
 
         <Reveal delay={0.08} className="mt-6">
-          <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+          <p className="mono-tag inline-flex text-[var(--foreground)]">
             All testimonial names, roles, and companies below are fictional and included for showcase realism only.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.name} delay={index * 0.06}>
-              <article className="section-surface h-full rounded-[1.75rem] p-6 sm:p-7">
-                <div className="flex gap-1 text-amber-400">
+              <article className="section-surface h-full p-6 sm:p-7">
+                <div className="flex gap-1 text-[var(--foreground)]">
                   {Array.from({ length: 5 }).map((_, starIndex) => (
                     <Star key={starIndex} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
 
-                <p className="mt-6 text-lg leading-8 text-slate-700">
+                <p className="copy-secondary mt-6 text-lg leading-8">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
 
-                <div className="mt-8 border-t border-slate-200 pt-5">
-                  <p className="font-display text-lg font-semibold text-slate-900">
+                <div className="mt-8 border-t border-[var(--line)] pt-5">
+                  <p className="text-lg font-normal tracking-tight text-[var(--foreground)]">
                     {testimonial.name}
                   </p>
-                  <p className="mt-1 text-sm text-slate-500">{testimonial.role}</p>
+                  <p className="copy-tertiary mt-1 text-sm">{testimonial.role}</p>
                 </div>
               </article>
             </Reveal>
