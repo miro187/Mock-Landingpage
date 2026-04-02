@@ -7,8 +7,8 @@ import { heroStats, trustHighlights } from "@/data/site-content";
 export function HeroSection() {
   return (
     <section id="top" className="border-b border-[var(--line)]">
-      <Container className="hero-shell flex items-center py-16 sm:py-20 lg:py-24">
-        <div className="grid w-full items-end gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+      <Container className="hero-shell flex items-start py-12 sm:py-14 lg:py-16">
+        <div className="grid w-full items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="max-w-2xl">
             <Reveal>
               <p className="mono-label">
